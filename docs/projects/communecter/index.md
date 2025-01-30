@@ -3,12 +3,13 @@ id: communecter
 title: Communecter
 tags:
   - Event
-  - News 
+  - News
   - Projects
   - Social Networking
   - Federation
 ---
 
+See presentation of communecter activitypub [Presentation](./presentation)
 
 ## What is Communecter ActivityPub?
 
