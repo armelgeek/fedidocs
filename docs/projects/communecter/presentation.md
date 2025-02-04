@@ -1,323 +1,357 @@
 # Introduction
 
-Cette présentation va démontrer comment la fédération fonctionne sur Communecter. Nous allons explorer les principales caractéristiques et fonctionnalités qui permettent une collaboration et un partage de données sans faille entre différentes entités.
+This presentation will demonstrate how federation works on Communecter. We will explore the main features and functionalities that enable seamless collaboration and data sharing between different entities.
 
+## 🏛️ What is Federation?
 
-## 🏛️ Qu'est-ce que la Fédération ?
+Federation is like a **network of villages** connected to each other. Each village (server) is independent but can share information with others.
 
-La fédération, c'est comme un **réseau de villages** reliés entre eux. Chaque village (serveur) est indépendant mais peut partager des informations avec les autres.
+Instead of a single network controlled by one company (like Facebook or Twitter), federation allows each server to communicate freely with others while maintaining its autonomy.
 
-Au lieu d’un réseau unique contrôlé par une seule entreprise (comme Facebook ou Twitter), la fédération permet à chaque serveur de communiquer librement avec les autres, sans perdre son autonomie.
+## 🤔 Why Use Federation?
 
+### ✅ **Freedom and Independence**
+Everyone can choose their server or create one while staying connected to the rest of the network. No need for a single centralized network!
 
+### 🔄 **Interconnection**
+You can follow and interact with users on other servers as if everything was on a single platform.
 
-## 🤔 Pourquoi utiliser la Fédération ?
+### 🌍 **A More Open and Collaborative Internet!**
+Thanks to federation, you benefit from a **decentralized**, **free**, and **interconnected** network, where each community maintains its independence while staying in contact with others.
 
-### ✅ **Liberté et Indépendance**
-Chacun peut choisir son serveur ou en créer un, tout en restant connecté au reste du réseau. Pas besoin d’un seul grand réseau centralisé !
+## 🌐 Introduction to Federation on Communecter
 
-### 🔄 **Interconnexion**
-Vous pouvez suivre et interagir avec des utilisateurs sur d’autres serveurs, comme si tout était sur une seule plateforme.
+Today, most platforms are **centralized**: they belong to large companies that control the data, interactions, and network rules. But there's another approach: **federation**.
 
+Communecter adopts this federated model to offer a **decentralized, free, and open** network. Each user can join a Communecter instance (server) or create one while staying connected to others.
 
+Thanks to federation, **you can interact with people and content published on other servers** without being limited to a single platform.
 
-### 🌍 **Un Internet plus ouvert et collaboratif !**
-Grâce à la fédération, vous profitez d’un réseau **décentralisé**, **libre** et **interconnecté**, où chaque communauté garde son indépendance tout en restant en contact avec les autres.
+In the following sections, we'll see how federation works in Communecter for **news, notes, and events**, and how it allows you to **share, interact, and collaborate** across the entire network. 🚀
 
+# Prerequisites
 
-## 🌐 Introduction à la Fédération sur Communecter
+In Communecter, to share news, events, organizations, badges, etc., on other Communecter instances and even on other platforms that support ActivityPub, the Communecter instance must be configured for ActivityPub.
 
-Aujourd’hui, la plupart des plateformes sont **centralisées** : elles appartiennent à de grandes entreprises qui contrôlent les données, les interactions et les règles du réseau. Mais il existe une autre approche : **la fédération**.
+To do this, you need to activate the ActivityPub module in your Communecter account settings. Here are the steps:
 
-Communecter adopte ce modèle fédéré pour offrir un réseau **décentralisé, libre et ouvert**. Chaque utilisateur peut rejoindre une instance Communecter (un serveur) ou en créer une, tout en restant connecté aux autres.
+- Go to communecter.org
+- Log in with your Communecter account
+- Access your profile
+- Go to settings
+- Activate the ActivityPub module
 
-Grâce à la fédération, **vous pouvez interagir avec des personnes et des contenus publiés sur d’autres serveurs**, sans être limité à une seule plateforme.
+You should arrive at this page:
+![ActivityPub module activation](./presentation/parametre.png)
 
-Dans les sections suivantes, nous verrons comment la fédération fonctionne dans Communecter pour les **nouvelles, les notes et les événements**, et comment elle vous permet de **partager, interagir et collaborer** à travers tout le réseau. 🚀
+Once this is done, you need to follow someone on another Communecter instance to be able to share news, events, organizations, badges, etc. Here's the procedure:
 
-# Prérequis
+- Go to communecter.org
+- Log in with your Communecter account
+- Access your profile
+- Go to the "Community" section
+- Access the "External Networks" section
 
-Dans Communecter, pour pouvoir partager des nouvelles, événements, organisations, badges, etc., sur d'autres instances Communecter et même sur d'autres plateformes qui supportent ActivityPub, il faut que l'instance Communecter soit configurée pour l'ActivityPub.
+You should see this page:
+![External Networks](./presentation/reseau-externe.png)
 
-Pour ce faire, il est nécessaire d'activer le module ActivityPub dans les paramètres de son compte Communecter. Voici les étapes à suivre :
+Here, you'll see your subscriptions and followers. To follow someone, search for them by their address, for example: @armelwanes@mastodon.social, then click on the follow icon.
 
-- Aller sur communecter.org
-- Se connecter avec son compte Communecter
-- Accéder à son profil
-- Aller dans les paramètres
-- Activer le module ActivityPub
+![Follow a user](./presentation/suivre.png)
 
-Vous devriez arriver sur cette page :
-![Activation du module ActivityPub](./presentation/parametre.png)
+Now that you're following someone, you can intercept news, events, organizations, badges, etc., on other Communecter instances and even on other platforms that support ActivityPub, and share this information with your followers.
 
-Une fois cela fait, il est nécessaire de suivre quelqu'un sur une autre instance de Communecter pour pouvoir partager des nouvelles, événements, organisations, badges, etc. Voici la procédure à suivre :
+## News Federation
 
-- Aller sur communecter.org
-- Se connecter avec son compte Communecter
-- Accéder à son profil
-- Aller dans la section "Communauté"
-- Accéder à la section "Réseaux externes"
+News federation in Communecter allows users to share their community's news on their own instance, thanks to the addition of the ActivityPub protocol. This enables sharing news on other Communecter instances and even on other platforms that support ActivityPub.
 
-Vous devriez voir cette page :
-![Réseaux externes](./presentation/reseau-externe.png)
+Generally, news federation has four major features:
 
-Ici, vous verrez vos abonnements et abonnés. Pour suivre quelqu'un, recherchez-le par son adresse, par exemple : @armelwanes@mastodon.social, puis cliquez sur l'icône de suivi.
+### 1. News Creation
+Once you follow someone, you can intercept news published by the people you follow. For example, if Racoon (Kuun@mada-communecter.local) publishes news, it will automatically be published on your Communecter instance.
 
-![Suivre un utilisateur](./presentation/suivre.png)
+![News publication](./presentation/racoon-news.png)
 
-Maintenant que vous suivez quelqu'un, vous pouvez intercepter des nouvelles, événements, organisations, badges, etc., sur d'autres instances Communecter et même sur d'autres plateformes qui supportent ActivityPub, et partager ces informations avec vos abonnés.
+The news publication on Racoon's server will be visible on your Communecter server, with a mention of the original instance.
 
-## Fédération des Nouvelles
+![News on your server](./presentation/racoon-news-2.png)
 
-La fédération des nouvelles dans Communecter permet aux utilisateurs de partager l'actualité de leur communauté sur leur propre instance, grâce à l'ajout du protocole ActivityPub. Cela permet de partager des nouvelles sur d'autres instances Communecter et même sur d'autres plateformes qui supportent ActivityPub.
+### 2. News Management
+Any changes made by Racoon on their Communecter server will be reflected on your server:
+- If Racoon deletes news, it will automatically be deleted from your server.
+- If Racoon modifies news, it will automatically be updated on your server.
+- Comments on the news will also be synchronized.
 
-En général, la fédération des nouvelles comporte quatre fonctionnalités majeures :
+### 3. Federation with Mastodon
+Communecter can also interact with Mastodon instances through ActivityPub. This means:
 
-### 1. Création des Nouvelles
-Dès que vous suivez quelqu'un, vous pouvez intercepter les nouvelles publiées par les personnes que vous suivez. Par exemple, si Racoon (Kuun@mada-communecter.local) publie une nouvelle, elle sera automatiquement publiée sur votre instance Communecter.
+#### From Communecter to Mastodon
+- When you publish news on Communecter, it can be shared on Mastodon
+- Your Mastodon followers will see your Communecter news in their timeline
+- They can interact with your content through likes and boosts
 
-![Publication de nouvelles](./presentation/racoon-news.png)
+#### From Mastodon to Communecter
+- You can follow Mastodon accounts from your Communecter instance
+- Mastodon posts will appear in your Communecter news feed
+- You can interact with Mastodon content directly from Communecter
 
-La publication de la nouvelle sur le serveur de Racoon sera visible sur votre serveur Communecter, avec une mention de l'instance d'origine.
+#### Example Scenario
+Let's follow a concrete example with **Armel Wanes** who uses both Communecter (armelwanes@communecter.local) and Mastodon (@armelwanes@mastodon.social):
+Armel Wanes' account on mastodon.social (https://mastodon.social/@armelwanes)
+![News on Mastodon](./presentation/mastodon-1.png)
 
-![Nouvelle sur votre serveur](./presentation/racoon-news-2.png)
+When Armel Wanes publishes news on Communecter, it is automatically published on their Mastodon.social account.
 
-### 2. Gestion des Nouvelles
-Tout changement effectué par Racoon sur son serveur Communecter sera reflété sur votre serveur :
-- Si Racoon supprime une nouvelle, elle sera automatiquement supprimée de votre serveur.
-- Si Racoon modifie une nouvelle, elle sera automatiquement mise à jour sur votre serveur.
-- Les commentaires sur la nouvelle seront également synchronisés.
+![News on Mastodon](./presentation/mastodon-2.png)
 
-### Commentaires
-Vous pouvez commenter les nouvelles sur votre serveur, et ces commentaires seront publiés sur le serveur de Racoon, combinés avec les commentaires existants.
+Similarly, on mastodon.social, if Armel Wanes publishes news, it is automatically published on their Communecter account.
 
-![Commentaire sur votre serveur](./presentation/racoon-news-3.png)
-![Commentaire sur le serveur de Racoon](./presentation/racoon-news-4.png)
+![News on Communecter](./presentation/mastodon-3.png)
 
-## Fédération des Événements
+My comments on Armel Wanes' news (@armelwanes@mastodon.social) are automatically published on Mastodon.social.
 
-Dans Communecter, les événements permettent aux communautés d’organiser et de partager des activités. Chaque événement comprend une date de début, une date de fin, un lieu, une description et un organisateur. Comme pour les nouvelles, les événements peuvent être fédérés sur d’autres instances Communecter et sur des plateformes compatibles avec **ActivityPub**, comme **Mobilizon**.
+![News on Mastodon](./presentation/mastodon-4.png)
 
+![News on Mastodon](./presentation/mastodon-5.png)
 
+Likewise, if someone comments on Armel Wanes' news on Mastodon.social, the comment is automatically published on Communecter and I will see it.
 
-### 📢 Création et Partage d’un Événement
-Lorsqu’un utilisateur crée un événement sur son serveur Communecter, celui-ci peut être partagé avec les personnes qui le suivent.
 
-**Exemple :**
-Si **Armel Wanes** (*armelwanes@communecter.local*) publie un événement, toutes les personnes qui le suivent verront cet événement apparaître sur leur propre serveur Communecter.
+![News on Mastodon](./presentation/mastodon-6.png)
 
-![Événement créé](./presentation/evenement-1.png)
+### Comments
+You can comment on news on your server, and these comments will be published on Racoon's server, combined with existing comments.
 
-Dès que l’événement est publié, il devient visible sur votre serveur avec une mention indiquant son origine.
+![Comment on your server](./presentation/racoon-news-3.png)
+![Comment on Racoon's server](./presentation/racoon-news-4.png)
 
-![Événement sur votre serveur](./presentation/evenement-2.png)
+## Events Federation
 
-Cela permet à tout le réseau d’être informé des événements organisés, sans avoir à se rendre sur le serveur d’origine.Dans communecter l'événement est visible sur votre serveur Communecter, avec une mention de l'instance d'origine juste en dessous de celui-ci.
+In Communecter, events allow communities to organize and share activities. Each event includes a start date, end date, location, description, and organizer. Like news, events can be federated on other Communecter instances and platforms compatible with **ActivityPub**, such as **Mobilizon**.
 
-### 🔄 Mise à Jour et Synchronisation
-Les événements restent dynamiques et peuvent être mis à jour en temps réel sur tous les serveurs concernés.
+### 📢 Creating and Sharing an Event
+When a user creates an event on their Communecter server, it can be shared with people who follow them.
 
-✅ **Modification de l’événement** : Si l’organisateur change la date, le lieu ou d’autres informations, ces mises à jour sont appliquées automatiquement.
-✅ **Suppression de l’événement** : Si l’événement est annulé, il disparaît aussi de tous les serveurs qui le fédèrent.
-✅ **Commentaires synchronisés** : Tous les échanges autour de l’événement sont visibles sur chaque instance qui le fédère.
+**Example:**
+If **Armel Wanes** (*armelwanes@communecter.local*) publishes an event, all people following them will see this event appear on their own Communecter server.
 
+![Created event](./presentation/evenement-1.png)
 
+As soon as the event is published, it becomes visible on your server with a mention indicating its origin.
 
-### 🎟️ Participation et Annulation
-Vous pouvez **confirmer votre participation** directement depuis votre serveur. Votre inscription sera envoyée au serveur de l’organisateur, et elle apparaîtra dans la liste des participants de l’événement.
+![Event on your server](./presentation/evenement-2.png)
 
-Si vous changez d’avis, vous pouvez aussi **annuler votre participation** depuis votre propre instance, et cette information sera synchronisée partout.
+This allows the entire network to be informed of organized events without having to visit the original server. In Communecter, the event is visible on your Communecter server, with a mention of the original instance just below it.
 
-Grâce à cette fédération, tout le monde peut suivre et interagir avec les événements, même s’ils sont publiés sur d’autres serveurs ! 🚀
+### 🔄 Update and Synchronization
+Events remain dynamic and can be updated in real-time on all concerned servers.
 
-![Participer à l'événement](./presentation/evenement-3.png)
+✅ **Event modification**: If the organizer changes the date, location, or other information, these updates are automatically applied.
+✅ **Event deletion**: If the event is cancelled, it also disappears from all servers federating it.
+✅ **Synchronized comments**: All exchanges around the event are visible on each instance federating it.
 
+### 🎟️ Participation and Cancellation
+You can **confirm your participation** directly from your server. Your registration will be sent to the organizer's server, and it will appear in the event's participant list.
 
+If you change your mind, you can also **cancel your participation** from your own instance, and this information will be synchronized everywhere.
 
-## 🏢 Fédération des Organisations
+Thanks to this federation, everyone can follow and interact with events, even if they're published on other servers! 🚀
 
-Dans Communecter, une organisation peut être une **association, une entreprise, un collectif ou toute autre structure** souhaitant interagir avec une communauté. Elle peut partager des **informations, des événements, des nouvelles et collaborer avec d’autres utilisateurs**.
+![Participate in the event](./presentation/evenement-3.png)
 
-Grâce à la **fédération**, une organisation n’est plus limitée à un seul serveur Communecter. Elle peut être suivie et interagir avec des membres répartis sur plusieurs instances. Cela permet une meilleure **visibilité, interconnexion et collaboration** entre communautés, même si elles sont hébergées sur des serveurs différents.
+### 🔄 Federation with Mobilizon
 
-Prenon l'exemple de l'organisation "EmpowerJeunes" de **Armel Wanes** qui est hébergée sur l'instance Communecter d'**Armel Wanes** (armelwanes@communecter.local) et qui est suivie par Racoon (kuun@mada-communecter.local).
+Communecter can federate with Mobilizon, another platform specialized in event organization. Here's how it works:
 
+#### From Communecter to Mobilizon
+- Events created on Communecter can be visible on Mobilizon
+- Mobilizon users can see event details and participate
+- Updates to the event on Communecter are synchronized with Mobilizon
 
-![Événement créé](./presentation/organization-1.png)
+#### From Mobilizon to Communecter
+- You can follow Mobilizon events from your Communecter instance
+- Mobilizon events appear in your Communecter calendar
+- You can participate in Mobilizon events directly from Communecter
 
-Et sur Racoon, il peut voir l'organisation "EmpowerJeunes" sur son serveur Communecter.
+#### Test Example with Mobilizon
+We have a test group on Mobilizon (https://mobilizon.fr/@armelwanesgroup) to test the federation with Mobilizon.
+![Follow a group](./presentation/mobilizon-1.png)
+To be able to follow an event on Mobilizon, you must first follow the group on Mobilizon, following the group allows you to receive the group's events on your Communecter.
+To follow the group, it's the same procedure as following a user (e.g., @armelwanesgroup@mobilizon.fr).
+![Follow a group](./presentation/mobilizon-2.png)
 
-![Événement créé](./presentation/organization-2.png)
-Contrairement a celui de l'organisation sur l'instance d'Armel Wanes, celui de Racoon est marqué comme étant une organisation fédérée avec l'information de l'instance d'origine.ici il est marqué "fédéré depuis communecter.local".
+Now that we have followed the group, we can follow the group's events.
+When an event is published on Mobilizon, it is automatically published on your Communecter.
+![Follow an event](./presentation/mobilizon-3.png)
+sur communecter The event is visible on your Communecter with a mention of the original instance.
+![Follow an event](./presentation/mobilizon-4.png)
 
-Et quand Racoon clique sur l'organisation "EmpowerJeunes", il arrive sur la page de l'organisation d'Armel Wanes. avec toutes les informations de l'organisation mais avec une vue minimaliste, l'organisation est toujours marquée comme étant fédérée avec l'information de l'instance d'origine.ici il est marqué "fédéré depuis communecter.local".
+## 🏢 Organizations Federation
 
-![Événement créé](./presentation/organization-3.png)
+In Communecter, an organization can be an **association, company, collective, or any other structure** wishing to interact with a community. It can share **information, events, news, and collaborate with other users**.
 
-L'ajout de membre est également fédéré, si Racoon ajoute un membre à l'organisation "EmpowerJeunes", ce membre sera ajouté à l'organisation d'Armel Wanes et vice versa.
-C'est a dire que je peux envoyé une invitation à un membre de l'organisation "EmpowerJeunes" de Racoon et ce membre recevra une invitation sur son serveur Communecter.
+Thanks to **federation**, an organization is no longer limited to a single Communecter server. It can be followed and interact with members spread across several instances. This allows better **visibility, interconnection, and collaboration** between communities, even if they are hosted on different servers.
 
+Let's take the example of the "EmpowerJeunes" organization by **Armel Wanes** which is hosted on **Armel Wanes**'s Communecter instance (armelwanes@communecter.local) and is followed by Racoon (kuun@mada-communecter.local).
 
-![Événement créé](./presentation/organization-4.png)
+![Created event](./presentation/organization-1.png)
 
-Dans la section "Membres", les membres de l'organisation sont marqués comme étant fédérés avec l'information de l'instance d'origine.Ils sont combinés avec les membres de l'organisation d'Armel Wanes. a l'inverse, si Armel Wanes supprime un membre de l'organisation "EmpowerJeunes", ce membre sera supprimé de l'organisation de Racoon et vice versa.
+And on Racoon, they can see the "EmpowerJeunes" organization on their Communecter server.
 
-![Événement créé](./presentation/organization-5.png)
+![Created event](./presentation/organization-2.png)
+Unlike the organization display on Armel Wanes's instance, Racoon's is marked as a federated organization with the original instance information. Here it is marked "federated from communecter.local".
 
-La personne invité depuis le fediverse est marquée comme étant fédérée avec l'icon du fediverse juste en haut du profil.
+And when Racoon clicks on the "EmpowerJeunes" organization, they arrive on Armel Wanes's organization page with all the organization's information but with a minimalist view, the organization is still marked as federated with the original instance information. Here it is marked "federated from communecter.local".
 
+![Created event](./presentation/organization-3.png)
 
-Comme avec les utilisateurs, les organisations peuvent être suivies par d'autres utilisateurs et vice versa.
-![Événement créé](./presentation/organization-6.png)
+Member addition is also federated. If Racoon adds a member to the "EmpowerJeunes" organization, this member will be added to Armel Wanes's organization and vice versa.
+This means I can send an invitation to a member of Racoon's "EmpowerJeunes" organization and this member will receive an invitation on their Communecter server.
 
-### 🎯 **Pourquoi suivre une organisation fédérée ?**
-✔️ **Rester informé** : Recevez toutes ses actualités en temps réel.
-✔️ **Interagir sans restriction** : Commentez, réagissez et participez aux événements, même si l’organisation est sur un autre serveur.
-✔️ **Faciliter la collaboration** : Connectez-vous avec des structures similaires et développez des synergies au-delà de votre propre instance.
-✔️ **Encourager la transparence** : Les organisations restent ouvertes et accessibles aux membres des autres communautés.
+![Created event](./presentation/organization-4.png)
 
-## 🏗️ Actions Disponibles pour les Organisations
+In the "Members" section, organization members are marked as federated with the original instance information. They are combined with Armel Wanes's organization members. Conversely, if Armel Wanes removes a member from the "EmpowerJeunes" organization, this member will be removed from Racoon's organization and vice versa.
 
-La fédération des organisations permet **une gestion flexible et dynamique** de votre structure sur Communecter. Voici toutes les actions disponibles :
+![Created event](./presentation/organization-5.png)
 
-### 📌 **Création et gestion d'une organisation**
-✅ **Créer une organisation** : Lancez et structurez votre propre organisation sur la plateforme.
-✅ **Mettre à jour une organisation** : Modifiez les informations et gardez votre organisation à jour.
-✅ **Gérer les rôles et responsabilités** : Définissez des administrateurs et des membres actifs pour organiser votre structure.
+The person invited from the fediverse is marked as federated with the fediverse icon just above the profile.
 
-### 👥 **Interaction avec les membres**
-✅ **Inviter des utilisateurs** : Envoyez des invitations pour agrandir votre communauté.
-✅ **Accepter une invitation** : Rejoignez des organisations qui vous intéressent en un clic.
-✅ **Devenir membre d’une organisation** : Engagez-vous dans des projets collectifs et participez activement.
-✅ **Quitter une organisation** : Gérez vos engagements en toute liberté.
+Like with users, organizations can be followed by other users and vice versa.
+![Created event](./presentation/organization-6.png)
 
-### 🔑 **Gestion des rôles et permissions**
-✅ **Attribuer des rôles** : Offrez des responsabilités aux membres en fonction de leur implication.
-✅ **Ajouter un administrateur** : Donnez à d’autres membres les moyens d’administrer l’organisation.
-✅ **Supprimer des privilèges d’administrateur** : Révisez les rôles pour assurer une gestion équilibrée.
-✅ **Accepter une demande d’administrateur** : Autorisez des membres à aider à la gestion de l’organisation.
+### 🎯 **Why Follow a Federated Organization?**
+✔️ **Stay informed**: Receive all its news in real-time.
+✔️ **Interact without restriction**: Comment, react, and participate in events, even if the organization is on another server.
+✔️ **Facilitate collaboration**: Connect with similar structures and develop synergies beyond your own instance.
+✔️ **Encourage transparency**: Organizations remain open and accessible to members of other communities.
 
-### 🗑️ **Modération et gestion des membres**
-✅ **Supprimer un membre** : Maintenez une équipe efficace et engagée en régulant l’accès.
+## 🏗️ Available Actions for Organizations
 
+Organization federation allows **flexible and dynamic management** of your structure on Communecter. Here are all available actions:
 
+### 📌 **Creating and Managing an Organization**
+✅ **Create an organization**: Launch and structure your own organization on the platform.
+✅ **Update an organization**: Modify information and keep your organization up to date.
+✅ **Manage roles and responsibilities**: Define administrators and active members to organize your structure.
 
-## 🚀 Pourquoi fédérer les organisations ?
+### 👥 **Interaction with Members**
+✅ **Invite users**: Send invitations to grow your community.
+✅ **Accept an invitation**: Join organizations that interest you with one click.
+✅ **Become a member of an organization**: Engage in collective projects and participate actively.
+✅ **Leave an organization**: Manage your commitments freely.
 
-La fédération des organisations permet d’avoir un **écosystème ouvert, dynamique et collaboratif**. Elle offre :
+### 🔑 **Role and Permission Management**
+✅ **Assign roles**: Offer responsibilities to members based on their involvement.
+✅ **Add an administrator**: Give other members the means to administer the organization.
+✅ **Remove administrator privileges**: Review roles to ensure balanced management.
+✅ **Accept an administrator request**: Authorize members to help manage the organization.
 
-🔹 **Un réseau interconnecté** : Les organisations ne sont plus limitées à un seul serveur.
-🔹 **Une meilleure visibilité** : Atteignez un public plus large, au-delà de votre instance locale
+### 🗑️ **Moderation and Member Management**
+✅ **Remove a member**: Maintain an effective and engaged team by regulating access.
 
-Grâce à Communecter, **vos organisations ne sont plus isolées, elles font partie d’un réseau global et interconnecté !** 🌍💡
+## 🚀 Why Federate Organizations?
 
+Organization federation allows for an **open, dynamic, and collaborative ecosystem**. It offers:
 
+🔹 **An interconnected network**: Organizations are no longer limited to a single server.
+🔹 **Better visibility**: Reach a wider audience beyond your local instance.
 
-## 🏅 Fédération des Badges
+Thanks to Communecter, **your organizations are no longer isolated, they are part of a global and interconnected network!** 🌍💡
 
-Les badges dans Communecter sont des **récompenses** symboliques attribuées aux utilisateurs pour leurs **contributions** et leur **engagement** au sein de la communauté. Ces distinctions valorisent les actions positives et encouragent la participation active.
+## 🏅 Badges Federation
 
-### 🤝 Qu'est-ce que la Fédération des Badges ?
-La fédération des badges permet aux utilisateurs de **recevoir des badges** d'autres instances Communecter et de les afficher sur leur profil. Cela crée un réseau de reconnaissance et d'engagement partagé, où les contributions des utilisateurs sont visibles au-delà de leur instance d'origine.
+Badges in Communecter are symbolic **rewards** awarded to users for their **contributions** and **engagement** within the community. These distinctions value positive actions and encourage active participation.
 
-Prenon l'exemple de **Racoon** (kuun@mada-communecter.local) qui reçoit un badge depuis le serveur Communecter d'**Armel Wanes** (armelwanes@communecter.local).
+### 🤝 What is Badges Federation?
+Badge federation allows users to **receive badges** from other Communecter instances and display them on their profile. This creates a network of shared recognition and engagement, where users' contributions are visible beyond their original instance.
 
-![Événement créé](./presentation/badge-1.png)
+Let's take the example of **Racoon** (kuun@mada-communecter.local) who receives a badge from **Armel Wanes**'s Communecter server (armelwanes@communecter.local).
 
-Depuis Racoon, il peut voir le badge sur son instance Communecter.
+![Created event](./presentation/badge-1.png)
 
-![Événement créé](./presentation/badge-2.png)
-Contrairement a l'affichage du badge sur l'instance d'Armel Wanes, celui de Racoon est marqué comme étant un badge fédéré avec l'information de l'instance d'origine.ici il est marqué "fédéré depuis communecter.local".
+From Racoon, they can see the badge on their Communecter instance.
 
-et on peu assigné un badge a un utilisateur de l'instance d'Armel Wanes. et du coup il sera visible sur le serveur de Racoon et vice versa, on peut le voir juste en dessous du badge.
+![Created event](./presentation/badge-2.png)
+Unlike the badge display on Armel Wanes's instance, Racoon's is marked as a federated badge with the original instance information. Here it is marked "federated from communecter.local".
 
-![Événement créé](./presentation/badge-3.png)
-Les utilisateurs du fédiverse peuvent voir les badges assignés a un utilisateur de l'instance d'Armel Wanes du fédiverse, les utilisateurs qui a recu du badge depuis le fediverse est specifié par l'icon du fediverse juste en haut du profil.
+And we can assign a badge to a user from Armel Wanes's instance. And consequently, it will be visible on Racoon's server and vice versa, we can see it just below the badge.
 
-### 🛠️ Gestion des Badges
+![Created event](./presentation/badge-3.png)
+Fediverse users can see badges assigned to a user from Armel Wanes's instance from the fediverse, users who received the badge from the fediverse are specified by the fediverse icon just above the profile.
 
-Lorsque vous recevez un badge d'une autre instance, il est **automatiquement ajouté à votre profil**, renforçant ainsi votre réputation et votre visibilité au sein de la communauté. Vous pouvez ainsi démontrer vos compétences et votre engagement à travers des badges qui reflètent vos réalisations.
+### 🛠️ Badge Management
 
+When you receive a badge from another instance, it is **automatically added to your profile**, thus strengthening your reputation and visibility within the community. You can demonstrate your skills and engagement through badges that reflect your achievements.
 
+### ✅ Available Functions for Badge Management
 
+Badge federation offers several features to manage rewards given to users:
 
-### ✅ Fonctions Disponibles pour la Gestion des Badges
+- **Badge creation**: Create custom badges to reward specific actions.
+- **Badge update**: Modify details or criteria for awarding an existing badge.
+- **Badge attribution**: Offer badges to users in recognition of their efforts.
+- **Badge confirmation**: Validate badge attribution to ensure its authenticity.
+- **Badge revocation**: Remove a badge in case of abuse or non-compliance with criteria.
+- **Badge refusal**: Reject a badge attribution request if it doesn't meet standards.
+- **Badge deletion**: Remove a badge from a user's history if necessary.
+- **Self-attribution of badge**: Allow users to self-attribute badges based on their achievements.
 
-La fédération des badges propose plusieurs fonctionnalités pour gérer les récompenses attribuées aux utilisateurs :
+### 🌟 Why Use Badge Federation?
+Badge federation promotes:
+🔹 **User interaction**: Badges from other instances strengthen connections and engagement.
+🔹 **Recognition**: Each badge is a testimony to user involvement, which values their contributions.
+🔹 **A dynamic community**: By rewarding users, we encourage active and collaborative participation.
 
-- **Création de badge** : Créez des badges personnalisés pour récompenser des actions spécifiques.
-- **Mise à jour de badge** : Modifiez les détails ou les critères d'attribution d'un badge existant.
-- **Attribution de badge** : Offrez des badges aux utilisateurs en reconnaissance de leurs efforts.
-- **Confirmation de badge** : Validez l'attribution d'un badge pour assurer son authenticité.
-- **Révocation de badge** : Retirez un badge en cas d'abus ou de non-respect des critères.
-- **Refus de badge** : Rejetez une demande d'attribution de badge si elle ne répond pas aux standards.
-- **Suppression de badge** : Supprimez un badge de l'historique d'un utilisateur si nécessaire.
-- **Auto-attribution de badge** : Permettre aux utilisateurs d'attribuer eux-mêmes des badges en fonction de leurs réalisations
+With badge federation on Communecter, your efforts are **visible and valued**, creating an environment where every contribution counts and is recognized! 🏆
 
+## 🌟 Projects
 
+In Communecter, projects are **collaborative initiatives** that bring users together around common goals. Whether organizing an event, launching a campaign, or developing an idea, projects allow combining everyone's strengths and skills.
 
-### 🌟 Pourquoi utiliser la Fédération des Badges ?
-La fédération des badges favorise :
-🔹 **L'interaction entre utilisateurs** : Les badges d'autres instances renforcent les connexions et l'engagement.
-🔹 **La reconnaissance** : Chaque badge est un témoignage de l'implication de l'utilisateur, ce qui valorise leurs contributions.
-🔹 **Une communauté dynamique** : En récompensant les utilisateurs, on encourage une participation active et collaborative.
+**Project federation** offers users the possibility to **follow and participate in projects** on other Communecter instances. This enriches the collaboration experience by enabling synergies between different communities.
 
-Avec la fédération des badges sur Communecter, vos efforts sont **visibles et valorisés**, créant un environnement où chaque contribution compte et est reconnue ! 🏆
+Let's take the example of **Racoon** (kuun@mada-communecter.local) who follows a project by **Armel Wanes** (armelwanes@communecter.local).
 
-## 🌟 Projets
+![Created event](./presentation/projet-1.png)
 
-Dans Communecter, les projets sont des **initiatives collaboratives** qui rassemblent des utilisateurs autour d'objectifs communs. Que ce soit pour organiser un événement, lancer une campagne ou développer une idée, les projets permettent d’unir les forces et les compétences de chacun.
+From Racoon, they can see the project on their Communecter instance.
 
-La **fédération des projets** offre aux utilisateurs la possibilité de **suivre et de participer à des projets** sur d'autres instances Communecter. Cela enrichit l'expérience de collaboration, en permettant des synergies entre différentes communautés.
+![Created event](./presentation/projet-0.png)
 
-Prenon l'exemple de **Racoon** (kuun@mada-communecter.local) qui suit un projet de **Armel Wanes** (armelwanes@communecter.local).
+Unlike the project display on Armel Wanes's instance, Racoon's is marked as a federated project with the original instance information. Here it is marked "federated from communecter.local".
+And if Racoon clicks on the project, they arrive on Armel Wanes's project page with a minimalist view and the project is marked as a federated project with the original instance information. Here it is marked "federated from communecter.local".
+![Created event](./presentation/projet-2.png)
 
-![Événement créé](./presentation/projet-1.png)
+Like with organizations, we can invite a user to participate in a project from the fediverse.
+![Created event](./presentation/projet-3.png)
 
-Depuis Racoon, il peut voir le projet sur son instance Communecter.
+And in the "Contributors" section, project contributors are marked as federated with the original instance information. They are combined with Armel Wanes's project contributors. Conversely, if Armel Wanes removes a contributor from the "FoodFinder" project, this contributor will be removed from Racoon's organization and vice versa.
 
+![Created event](./presentation/projet-4.png)
 
+### 🛠️ Project Management
 
-![Événement créé](./presentation/projet-0.png)
+- **Project creation**: Launch collaborative projects by defining clear objectives.
+- **Project update**: Modify project information to keep everyone informed of progress.
+- **Project deletion**: Remove a project when it's no longer relevant or necessary.
+- **Contributor invitation**: Invite other users to participate in your project to enrich available skills.
+- **Become a contributor**: Engage in a project and bring your expertise or time.
+- **Accept contribution request**: Validate requests from users wishing to join your project.
+- **Accept administrator request**: Welcome members wishing to take management responsibilities.
+- **Assign project roles**: Define contributor roles to structure responsibilities.
+- **Add an administrator**: Give administration rights to trusted members to facilitate management.
+- **Remove administrator privileges**: Review administration roles based on member engagement.
+- **Leave a project**: Withdraw from a project if your priorities change.
+- **Remove a contributor**: Maintain engagement by removing inactive members.
+- **Request administration**: Allow users to request administrator rights on a project.
+- **Follow a project**: Receive notifications and updates on project activities to stay informed.
 
-Contrairement a l'affichage du projet sur l'instance d'Armel Wanes, celui de Racoon est marqué comme étant un projet fédéré avec l'information de l'instance d'origine.ici il est marqué "fédéré depuis communecter.local".
-Et si Racoon clique sur le projet, il arrive sur la page du projet d'Armel Wanes avec un vue minimaliste et le projet est marqué comme étant un projet fédéré avec l'information de l'instance d'origine.ici il est marqué "fédéré depuis communecter.local".
-![Événement créé](./presentation/projet-2.png)
+### 🌍 Why Participate in Federated Projects?
+Project federation promotes:
+🔹 **Idea exchange**: Collaborate with users from other instances to enrich your projects.
+🔹 **Skill synergy**: Gather varied talents to achieve common goals.
+🔹 **Flexibility and openness**: Benefit from an adaptable and accessible project structure, regardless of which server you're on.
 
-Comme avec l'organisation, on peut invité un utilisateur a participer a un projet depuis le fediverse.
-![Événement créé](./presentation/projet-3.png)
+With Communecter, projects aren't just local; they're part of a global network, allowing each user to contribute to significant initiatives beyond instance boundaries. Together, let's advance our ideas and realize collective projects! 🚀
 
-Et dans la section "Contributeurs", les contributeurs du projet sont marqués comme étant fédérés avec l'information de l'instance d'origine.Ils sont combinés avec les contributeurs du projet d'Armel Wanes. a l'inverse, si Armel Wanes supprime un contributeur du projet "FoodFinder", ce contributeur sera supprimé de l'organisation de Racoon et vice versa.
-
-![Événement créé](./presentation/projet-4.png)
-
-### 🛠️ Gestion des Projets
-
-- **Création de projet** : Lancez des projets collaboratifs en définissant des objectifs clairs.
-- **Mise à jour de projet** : Modifiez les informations du projet pour tenir tout le monde au courant des avancées.
-- **Suppression de projet** : Retirez un projet lorsqu'il n'est plus pertinent ou nécessaire.
-- **Invitation d'un contributeur** : Invitez d'autres utilisateurs à participer à votre projet pour enrichir les compétences disponibles.
-- **Devenir contributeur** : Engagez-vous dans un projet et apportez votre expertise ou votre temps.
-- **Acceptation de la demande de contribution** : Validez les demandes des utilisateurs souhaitant rejoindre votre projet.
-- **Acceptation de la demande d'administrateur** : Accueillez des membres souhaitant prendre des responsabilités de gestion.
-- **Attribution des rôles du projet** : Définissez les rôles des contributeurs pour structurer les responsabilités.
-- **Ajout d'un administrateur** : Donnez des droits d'administration à des membres de confiance pour faciliter la gestion.
-- **Suppression des privilèges d'administrateur** : Révisez les rôles d'administration en fonction de l'engagement des membres.
-- **Quitter un projet** : Retirez-vous d'un projet si vos priorités changent.
-- **Suppression d'un contributeur** : Maintenez l'engagement en retirant des membres non actifs.
-- **Demande d'administration** : Permettre aux utilisateurs de faire une demande pour obtenir des droits d'administrateur sur un projet.
-- **Suivre un projet** : Recevez des notifications et mises à jour sur les activités d'un projet pour rester informé.
-
-
-
-### 🌍 Pourquoi participer à des projets fédérés ?
-La fédération des projets favorise :
-🔹 **L'échange d'idées** : Collaborez avec des utilisateurs d'autres instances pour enrichir vos projets.
-🔹 **La synergie des compétences** : Rassemblez des talents variés pour atteindre des objectifs communs.
-🔹 **La flexibilité et l'ouverture** : Profitez d'une structure de projet adaptable et accessible, quel que soit le serveur sur lequel vous vous trouvez.
-
-Avec Communecter, les projets ne sont pas seulement locaux ; ils font partie d'un réseau global, permettant à chaque utilisateur de contribuer à des initiatives significatives au-delà des frontières des instances. Ensemble, faisons avancer nos idées et réalisons des projets collectifs ! 🚀
-
-
-
-Cette présentation vous a permis de découvrir comment la fédération fonctionne sur Communecter, en mettant l'accent sur les nouvelles, les événements, les organisations, les badges et les projets. Nous espérons que cela vous aidera à mieux comprendre et à tirer parti de ces fonctionnalités.
+This presentation has allowed you to discover how federation works on Communecter, focusing on news, events, organizations, badges, and projects. We hope this will help you better understand and take advantage of these features.
